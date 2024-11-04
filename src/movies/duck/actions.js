@@ -6,6 +6,7 @@ const setTopRatedMovies = (movies) => ({ type: types.SET_TOP_RATED_MOVIES, paylo
 const setUpComingMovies = (movies) => ({ type: types.SET_UPCOMING_MOVIES, payload: movies });
 const addMovieToFavorites = (movie) => ({ type: types.ADD_MOVIE_TO_FAVORITES, payload: movie });
 const setFavouriteMovies = () => ({ type: types.SET_FAVOURITE_MOVIES });
+const removeFavouriteMovies = () => ({ type: types.REMOVE_FAVOURITE_MOVIES });
 
 const actions = {
     setPlayingNowMovies,
@@ -14,6 +15,7 @@ const actions = {
     setUpComingMovies,
     addMovieToFavorites,
     setFavouriteMovies,
+    removeFavouriteMovies,
 };
 
 export default actions;

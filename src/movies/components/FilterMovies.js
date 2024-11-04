@@ -23,6 +23,9 @@ const FilterMovies = () => {
     const setFavouriteMovies = () => {
         dispatch(actions.setFavouriteMovies());
     };
+    const removeFavouriteMovies = () => {
+        dispatch(actions.removeFavouriteMovies());
+    };
 
     return (
         <div className="filter-movies">
@@ -31,6 +34,7 @@ const FilterMovies = () => {
             <button onClick={setUpcomingMovies}>Upcoming</button>
             <button onClick={setPlayingNowMovies}>Playing Now</button>
             <button onClick={setFavouriteMovies}>Favourite Movies</button>
+            <button onClick={removeFavouriteMovies}>Remove Favourite Movies</button>
         </div>
     );
 };

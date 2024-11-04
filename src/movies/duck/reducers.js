@@ -3,7 +3,7 @@ import types from './types';
 
 const INITIAL_STATE = {
     list: [],
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem('favorites')) || [],
 };
 
 function moviesReducer(state = INITIAL_STATE, action) {
@@ -27,10 +27,17 @@ function moviesReducer(state = INITIAL_STATE, action) {
         case types.ADD_MOVIE_TO_FAVORITES:
             return produce(state, (draft) => {
                 draft.favorites.push(action.payload);
+                localStorage.setItem('favorites', JSON.stringify(draft.favorites));
             });
         case types.SET_FAVOURITE_MOVIES:
             return produce(state, (draft) => {
                 draft.list = draft.favorites;
+            });
+        case types.REMOVE_FAVOURITE_MOVIES:
+            return produce(state, (draft) => {
+                draft.favorites = [];
+                draft.list = [];
+                localStorage.removeItem('favorites');
             });
         default:
             return state;
